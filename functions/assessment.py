@@ -33,7 +33,7 @@ def is_my_hometown(town_name):
     otherwise it returns False.
     """
 
-    #Assigned hometown to 'Morgan Hill', checked if town_name is equivalent.
+    # Assigned hometown to 'Morgan Hill', checked if town_name is equivalent.
     # Returns True if they are ==, False if they are not ==.
     hometown = "Morgan Hill"
     if town_name == hometown:
@@ -49,7 +49,7 @@ def combine_names(first_name, last_name):
     format and returns the full name as a string.
     """
 
-    #Returns formatted string containing the first_name and last_name.
+    # Returns formatted string containing the first_name and last_name.
     return "{} {}".format(first_name, last_name)
 
 
@@ -60,7 +60,7 @@ def greeting(town_name, first_name, last_name):
     the same hometown, it says this.  If not, a different greeting is given.
     """
 
-    #Using is_my_hometown checks to see if their hometown
+    # Using is_my_hometown checks to see if their hometown
     # and my hometown are equivalent.  If they are, they are greeted by name
     # and told they are from same place.  If not, they are greeting by name
     # and told that I want to visit their hometown.
@@ -114,7 +114,7 @@ def is_berry(fruit):
     True, otherwise return False.
     """
 
-    #Makes a list of acceptable fruits.  Checks to see if fruit is in fruits
+    # Makes a list of acceptable fruits.  Checks to see if fruit is in fruits
     # and returns boolean.
     fruits = ["strawberry", "raspberry", "blackberry", "currant"]
     if fruit in fruits:
@@ -130,7 +130,7 @@ def shipping_cost(fruit):
     shipping cost is 0.  If the fruit is not a berry then the cost is 5.
     """
 
-    #Checks to see if the fruit is a berry.  If it is return 0, else return 5.
+    # Checks to see if the fruit is a berry.  If it is return 0, else return 5.
     if is_berry(fruit):
         return 0
     else:
@@ -144,37 +144,42 @@ def append_to_list(lst, fruit):
     Takes in two arguments lst (a list) and fruit (a string).
     """
 
-    #I'm assuming I can use append() since it was not explicitly stated not to.
-    #Used the list method append() to add the fruit onto the end of lst in place.
+    # I'm assuming I can use append() since it was not explicitly stated not to.
+    # Used the list method append() to add the fruit onto the end of lst in place.
     lst.append(fruit)
     return lst
 
 
-def calculate_price(FILL_ME_IN):
+def calculate_price(item_base_price, state, tax=.05):
     """Calculate total price of an item, figuring in state taxes and fees.
 
-    >>> calculate_price(40, "CA")
-    43.26
-
-    >>> calculate_price(400, "NM")
-    420.0
-
-    >>> calculate_price(150, "OR", 0.0)
-    150.0
-
-    >>> calculate_price(60, "PA")
-    65.0
-
-    >>> calculate_price(38, "MA")
-    40.9
-
-    >>> calculate_price(126, "MA")
-    135.3
-
+    The takes arguments item_base_price as a float, state as a two letter
+    abbreviation string, and tax as a 2 decimal place float. The function
+    returns the total cost of the item as a float.
     """
 
-    pass
+    # Standardize the arguments by making the state all caps, item_base_price
+    # a float, and setting a base fee of zero.
+    state = state.upper()
+    item_base_price = float(item_base_price)
+    fees = 0
 
+    # Calculate tax and after tax state fees.
+    with_tax = item_base_price * tax + item_base_price
+    if state == 'CA':
+        fees = with_tax * .03
+    elif state == 'PA':
+        fees = 2.00
+    elif state == 'MA':
+        if item_base_price <= 100.00:
+            fees = 1.00
+        else:
+            fees = 3.00
+
+    # Return the total cost of the item with taxes and fees included.
+    total_cost = with_tax + fees
+    return total_cost
+    
 
 ###############################################################################
 
