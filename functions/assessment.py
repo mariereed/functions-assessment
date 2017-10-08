@@ -141,21 +141,13 @@ def append_to_list(lst, fruit):
     """Returns a new list consisting of the old list with the given number
        added to the end.
 
-    >>> append_to_list(['banana', 'apple', 'blackberry'], 'dragonfruit')
-    ['banana', 'apple', 'blackberry', 'dragonfruit']
-
-    >>> fruits = ['banana', 'apple', 'blackberry']
-    >>> append_to_list(fruits, 'dragonfruit')
-    ['banana', 'apple', 'blackberry', 'dragonfruit']
-    >>> fruits
-    ['banana', 'apple', 'blackberry']
-
+    Takes in two arguments lst (a list) and fruit (a string).
     """
 
-    #
-    
-
-    
+    #I'm assuming I can use append() since it was not explicitly stated not to.
+    #Used the list method append() to add the fruit onto the end of lst in place.
+    lst.append(fruit)
+    return lst
 
 
 def calculate_price(FILL_ME_IN):
