@@ -179,7 +179,7 @@ def calculate_price(item_base_price, state, tax=.05):
     # Return the total cost of the item with taxes and fees included.
     total_cost = with_tax + fees
     return total_cost
-    
+
 
 ###############################################################################
 
@@ -204,6 +204,48 @@ def calculate_price(item_base_price, state, tax=.05):
 
 #        >>> outer("Balloonicorn")
 #        ('Balloonicorn', 'BalloonicornBalloonicornBalloonicorn')
+
+
+def skdjasjdk(*args):
+    """Appends arguments to the end of a new list.
+
+    Takes any number of arguments and appends them to an empty list and then
+    returns the list.
+    """
+
+    # So this is cool! I actually looked up how to do this on Friday during
+    # lab.  I couldn't find my original source, but here is another that is
+    # doing the same thing...
+    # https://pythontips.com/2013/08/04/args-and-kwargs-in-python-explained/
+
+    # Creats a new list and through a for loop appends all the arguments into
+    # this new_list.
+    new_list = []
+    for arg in args:
+        new_list.append(arg)
+    return new_list
+
+
+def multiply_word(word):
+    """Multiplies an argument by three.
+
+    Argument taken should be a string.
+    """
+
+    # Multiply word by three.
+    return word * 3
+
+
+def multiply_word_tuple(word):
+    """Prints a tuple with index 1 being a word and index 2 being the word *3.
+
+    Takes two arguments, the first a string and the second the result of the
+    function multiply_word() for that same string. Returns these arguments as
+    a tuple.
+    """
+
+    # Print a tuple with two indeces the first the word, and the second word*3
+    print (word, multiply_word(word))
 
 
 ###############################################################################
