@@ -153,8 +153,8 @@ def append_to_list(lst, fruit):
 def calculate_price(item_base_price, state, tax=.05):
     """Calculate total price of an item, figuring in state taxes and fees.
 
-    The takes arguments item_base_price as a float, state as a two letter
-    abbreviation string, and tax as a 2 decimal place float. The function
+    Takes arguments item_base_price as a float, state as a two letter
+    abbreviated string, and tax as a 2 decimal place float.  The function
     returns the total cost of the item as a float.
     """
 
@@ -206,7 +206,7 @@ def calculate_price(item_base_price, state, tax=.05):
 #        ('Balloonicorn', 'BalloonicornBalloonicornBalloonicorn')
 
 
-def skdjasjdk(*args):
+def unpack_and_append(*args):
     """Appends arguments to the end of a new list.
 
     Takes any number of arguments and appends them to an empty list and then
@@ -229,11 +229,13 @@ def skdjasjdk(*args):
 def multiply_word(word):
     """Multiplies an argument by three.
 
-    Argument taken should be a string.
+    Argument taken can be any type, it will be treated and returned as a string.
     """
 
-    # Multiply word by three.
-    return word * 3
+    # Used format() method to take any argument type and create a string which
+    # repeats the argument three times. Using word * 3 creats unintended results
+    # for non-string types.
+    return '{}{}{}'.format(word, word, word)
 
 
 def multiply_word_tuple(word):
